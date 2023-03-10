@@ -145,7 +145,7 @@ namespace curso_de_net_core
             {
                 Name = "Yukimi Daifuku",
                 Price = 10,
-                IsFrozen = false
+                IsFrozen = true
             };
 
             //Add desserts to array
@@ -230,10 +230,22 @@ namespace curso_de_net_core
                 Console.WriteLine("\n-- Food --");
                 Console.WriteLine("Choose 1 of the options to add to your cart");
 
+                string spicy = ""; 
+
                 //Print in console the options of food
                 foreach (Food i in foodArray)
                 {
-                    Console.WriteLine("{0} ", cont + ". " + i.Name);
+                    
+                    if (i.IsSpicy == true)
+                    {
+                        spicy = " (Spicy)";
+                    }
+                    else
+                    {
+                        spicy = " (Not Spicy)";
+                    }
+
+                    Console.WriteLine("{0} ", cont + ". " + i.Name + spicy);
                     cont++;
                 }
 
@@ -269,10 +281,21 @@ namespace curso_de_net_core
                 Console.WriteLine("\n-- Drink --");
                 Console.WriteLine("Choose 1 of the options to add to your cart");
 
+                string IsAlcoholic = "";
+
                 //Print in console the options of drinks
                 foreach (Drink i in drinkArray)
                 {
-                    Console.WriteLine("{0} ", cont + ". " + i.Name);
+                    if (i.IsAlcoholic == true)
+                    {
+                        IsAlcoholic = " (Alcoholic)";
+                    }
+                    else
+                    {
+                        IsAlcoholic = " (Not Alcoholic)";
+                    }
+
+                    Console.WriteLine("{0} ", cont + ". " + i.Name + IsAlcoholic);
                     cont++;
                 }
 
@@ -304,11 +327,22 @@ namespace curso_de_net_core
             {
                 Console.WriteLine("\n-- Dessert --");
                 Console.WriteLine("Choose 1 of the options to add to your cart");
+                
+                string IsFrozen = "";
 
                 //Print in console the options of desserts
                 foreach (Dessert i in dessertArray)
                 {
-                    Console.WriteLine("{0} ", cont + ". " + i.Name);
+                    if (i.IsFrozen == true)
+                    {
+                        IsFrozen = " (Frozen)";
+                    }
+                    else
+                    {
+                        IsFrozen = " (Not Frozen)";
+                    }
+
+                    Console.WriteLine("{0} ", cont + ". " + i.Name + IsFrozen);
                     cont++;
                 }
 
@@ -350,6 +384,7 @@ namespace curso_de_net_core
                     cont++;
                 }
 
+                Console.WriteLine(totalCart());
 
                 while (true)
                 {
@@ -375,6 +410,8 @@ namespace curso_de_net_core
                                 Console.WriteLine("{0} ", cont + ". " + i.Name + "  $" + i.Price);
                                 cont++;
                             }
+
+                            Console.WriteLine(totalCart());
 
                             break;
                         }
