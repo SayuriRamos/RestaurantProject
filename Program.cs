@@ -41,7 +41,6 @@ namespace curso_de_net_core
             //Fill the arrays with food
             CreateItems();
 
-            
             Program creat = new Program();
             creat.Create();
            
@@ -390,7 +389,8 @@ namespace curso_de_net_core
                 {
                     Console.WriteLine("\nChoose 1 of the following options:");
                     Console.WriteLine("1. Delete items from cart" +
-                        "\n2. Checkout");
+                        "\n2. Checkout" +
+                        "\n3. Go back");
 
                     try
                     {
@@ -418,6 +418,10 @@ namespace curso_de_net_core
                         else if (choice == 2)
                         {
                             Checkout(5);
+                            break;
+                        }
+                        else if(choice == 3)
+                        {
                             break;
                         }
                         else
